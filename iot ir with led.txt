@@ -1,0 +1,28 @@
+int proximityPin=9;
+int proximityVal;
+int ledPin=12;
+void setup() {
+  Serial.begin(9600);
+  pinMode(proximityPin,INPUT);
+  pinMode(ledPin, OUTPUT);
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  proximityVal=digitalRead(proximityPin);
+  Serial.print("proximity sensor value: ");
+  Serial.println(proximityVal);
+  if(proximityVal==0)
+  {
+     digitalWrite(ledPin, HIGH); 
+     Serial.println("detected");
+  }
+  else
+  { 
+    digitalWrite(ledPin, LOW); 
+    Serial.println(" not detected");
+  // put your main code here, to run repeatedly:
+  }
+  delay(500);
+}
